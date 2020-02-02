@@ -1,0 +1,27 @@
+Response headers
+
+Expires: 				Lists a date and time. Once time is past that date and time, the response is considered stale. In this response, the expires time matches the date, meaning it is considered stale after getting a response
+Date: 					Date and time that the message originated. In this response, it is the same as the expires time.
+Cache control: 			Holds directives for caching requests and responses. The following directives are in the response:
+	private: 				must not be stored in a shared cache, must be a private cache
+	max-age=0: 				The max age for being fresh. Since it is 0, it doesn't spend anytime fresh.	
+	must-revalidate: 		Mandates that a cache cannot use the resource if it's stale unless it has been revalidated
+	no-transform: 			Disallows any modification to the resource
+Etag: 					Indicates the version of the resource. When a resource is updated, a new etag value is generated, so to instances of a resouce can be compared to see if they are the same version.
+Vary:
+Content type: 			Indicates the media type of the resource. The response indicates it is sent in JSON format and using UTF-8 encoding
+x-content-type-options: Specifies that the content type listed is correct. The response uses 'nosniff' to opt-out of MIME type sniffing
+x-frame-options: 		indicates what a browser should render a page in. The value 'SAMEORIGIN' is used to indicate the page can only be displayed in a frame as long as it on the same page.
+x-xss-protection: 		Can stop pages from loading when a cross-site scripting attack is detected. The value '1; mode=block' means it will block a page from loading rather than sanitize the input
+content-length: 		Size of the message in bytes. The value '45127' indicates that it is that many bytes
+server: 				The type of server that handled the request		
+alt-svc': 				Any alternative services used. ma for instance is max age.
+connection: 			Specifies whether the client or server wants to close the connection or leave it open. The value 'close' means the server wants to close the connection after the response.
+ 
+ 
+ Request header
+ 
+ Accept : 				specifies what content the user can accept. application/json indicates JSON, text/plain indicates plain text, */* means any type
+ User-Agent : 			Identifies user characteristics such as OS and application used. 
+ 
+ [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c62eee088574c0de31f1)
